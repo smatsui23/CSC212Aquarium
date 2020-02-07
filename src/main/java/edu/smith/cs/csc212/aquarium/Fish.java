@@ -17,11 +17,12 @@ public class Fish {
 	
 	public Fish(Color color, 
 			int x, int y, 
-			boolean isLittle) {
+			boolean isLittle, boolean facingLeft) {
 		this.color = color;
 		this.x = x;
 		this.y = y;	
 		this.isLittle = isLittle;
+		this.facingLeft = facingLeft;
 		
 		this.destX = 450;
 		this.destY = 450;
@@ -40,9 +41,13 @@ public class Fish {
 		
 		//Not all fish should be small and facing left
 		//need some if statements 
-		
-		DrawFish.smallFacingLeft(g, 
+		if (isLittle && facingLeft) {
+			DrawFish.smallFacingLeft(g, 
 				this.color, this.x, this.y);
-		
+		}	
+		else {
+			DrawFish.facingRight(g,
+					this.color, this.x, this.y);
+		}
 	}
-	}
+}

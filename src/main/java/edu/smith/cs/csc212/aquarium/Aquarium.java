@@ -45,8 +45,8 @@ public class Aquarium extends GFX {
 	int fish2X = getWidth() + 300;
 	int fish3X = -100;
 	
-	Fish nemo = new Fish(Color.magenta,250,250, true);
-	Fish marlin = new Fish(Color.orange, 100, 100, false);
+	Fish nemo = new Fish(Color.magenta,250,250, true, false);
+	Fish marlin = new Fish(Color.orange, 100, 100, false, true);
 
 	@Override
 	public void draw(Graphics2D g) {
