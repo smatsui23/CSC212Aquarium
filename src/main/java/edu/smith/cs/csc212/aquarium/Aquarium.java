@@ -40,13 +40,14 @@ public class Aquarium extends GFX {
 		// Don't change this here, edit the variables instead.
 		super(WIDTH, HEIGHT);
 	}
-
+	
+	int fish3X = 100;
 	
 	Fish nemo = new Fish(Color.magenta,250,250, true, false);
 	Fish marlin = new Fish(Color.orange, 100, 100, false, true);
 	Fish fishA = new Fish(Color.yellow, 130, 130, true, true);
 	Fish fishB = new Fish(Color.darkGray, 200, 200, false, false);
-	Fish fishC = new Fish(Color.green, 400, 300, true, true);
+	Fish fishC = new Fish(Color.green, 400, 300, false, true);
 
 	//Bubble one = new Bubble(Color.cyan,500,250);
 	
@@ -62,10 +63,19 @@ public class Aquarium extends GFX {
 		fishB.draw(g);
 		fishC.draw(g);
 
+		//Little Fish Moves
+		DrawFish.smallFacingRight(g, Color.red,fish3X, 200);
+
 		// Draw our snail!
 		algorithm.draw(g);
-	}
 
+		// Move the fish!
+		fish3X += 3;
+		if (fish3X > getWidth()+10) {
+			fish3X = 10;
+		}
+				
+	}
 
 	public static void main(String[] args) {
 		// Uncomment this to make it go slower!
