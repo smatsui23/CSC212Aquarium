@@ -41,13 +41,15 @@ public class Aquarium extends GFX {
 		super(WIDTH, HEIGHT);
 	}
 
-	int fish1X = getWidth() + 100;
-	int fish2X = getWidth() + 300;
-	int fish3X = -100;
 	
 	Fish nemo = new Fish(Color.magenta,250,250, true, false);
 	Fish marlin = new Fish(Color.orange, 100, 100, false, true);
+	Fish fishA = new Fish(Color.yellow, 130, 130, true, true);
+	Fish fishB = new Fish(Color.darkGray, 200, 200, false, false);
+	Fish fishC = new Fish(Color.green, 400, 300, true, true);
 
+	//Bubble one = new Bubble(Color.cyan,500,250);
+	
 	@Override
 	public void draw(Graphics2D g) {
 		// Draw the "ocean" background.
@@ -56,28 +58,14 @@ public class Aquarium extends GFX {
 		
 		nemo.draw(g);
 		marlin.draw(g);
-
-		DrawFish.smallFacingLeft(g, nemo.color, nemo.x, nemo.y);
-		// Draw the fish!
-		DrawFish.facingLeft(g, Color.yellow, fish1X, 200);
-		// Draw the confused fish!
-		DrawFish.facingLeft(g, Color.green, fish2X, 300);
-
-		// What if we wanted this little fish to swim, too?
-		DrawFish.smallFacingRight(g, Color.red, fish3X, 100);
+		fishA.draw(g);
+		fishB.draw(g);
+		fishC.draw(g);
 
 		// Draw our snail!
 		algorithm.draw(g);
-
-		// Move the fish!
-		fish1X -= 1;
-		fish2X -= 2;
-		fish3X += 3;
-		if (fish3X > getWidth()+50) {
-			fish3X = -100;
-		}
-				
 	}
+
 
 	public static void main(String[] args) {
 		// Uncomment this to make it go slower!

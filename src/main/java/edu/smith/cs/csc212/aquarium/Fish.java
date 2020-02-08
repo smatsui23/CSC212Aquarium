@@ -30,6 +30,9 @@ public class Fish {
 	
 	public void swim() {
 		//"Fish Destination System"
+		if (this.x < this.destX) {
+			this.x += 1;
+		}
 		if (this.y < this.destY) {
 			this.y += 1;
 		}
