@@ -43,13 +43,13 @@ public class Aquarium extends GFX {
 	
 	int fish3X = 100;
 	
-	Fish nemo = new Fish(Color.magenta,250,250, true, false);
+	Fish nemo = new Fish(Color.magenta,10,10, true, false);
 	Fish marlin = new Fish(Color.orange, 100, 100, false, true);
 	Fish fishA = new Fish(Color.yellow, 130, 130, true, true);
 	Fish fishB = new Fish(Color.darkGray, 200, 200, false, false);
 	Fish fishC = new Fish(Color.green, 400, 300, false, true);
 
-	//Bubble one = new Bubble(Color.cyan,500,250);
+ 
 	
 	@Override
 	public void draw(Graphics2D g) {
@@ -57,11 +57,13 @@ public class Aquarium extends GFX {
 		g.setColor(Color.blue);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
+		//Draw the fishes
 		nemo.draw(g);
 		marlin.draw(g);
 		fishA.draw(g);
 		fishB.draw(g);
 		fishC.draw(g);
+		
 
 		//Little Fish Moves
 		DrawFish.smallFacingRight(g, Color.red,fish3X, 200);
