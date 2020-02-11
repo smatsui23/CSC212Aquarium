@@ -44,6 +44,11 @@ public class Aquarium extends GFX {
 	
 	TreasureChest gold = new TreasureChest(0, 485, Color.yellow);
 	
+	Food seaweedA = new Food(380, 400, Color.green);
+	Food seaweedB = new Food(400, 400, Color.green);
+	Food seaweedC = new Food(420, 400, Color.green);
+	
+	
 	public Aquarium() {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
 		// Don't change this here, edit the variables instead.
@@ -107,6 +112,11 @@ public class Aquarium extends GFX {
 		
 		//draw TreasureChest
 		gold.draw(g);
+		
+		//draw Food
+		seaweedA.draw(g);
+		seaweedB.draw(g);
+		seaweedC.draw(g);
 		
 				
 	}
