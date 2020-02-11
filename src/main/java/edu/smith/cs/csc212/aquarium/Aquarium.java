@@ -39,10 +39,10 @@ public class Aquarium extends GFX {
 	 */
 	
 	
-	
 	Bubble crush = new Bubble();
 	Bubble [] bubbles = new Bubble[10];
 	
+	TreasureChest gold = new TreasureChest(0, 485, Color.yellow);
 	
 	public Aquarium() {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
@@ -106,7 +106,7 @@ public class Aquarium extends GFX {
 		}
 		
 		//draw TreasureChest
-		
+		gold.draw(g);
 		
 				
 	}

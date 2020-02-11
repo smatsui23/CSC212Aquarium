@@ -34,7 +34,7 @@ public class Bubble {
 		this.y -= 3;
 		if (this.y < -150) {
 			//off the screen
-			this.x = rand.nextInt(500);
+			this.x = rand.nextInt(130);
 			this.y = 550;
 			
 		}

@@ -16,8 +16,13 @@ public class TreasureChest {
 	
 	public void draw(Graphics2D g) {
 		g.setColor(this.color);
-		g.fillRect(x-7, y-15, 14, 10);
+		g.fillRect(x-5, y-15, 120, 80);
 		
+		//make TC more fancy? 
+		//for (int w=-3; w<8; w++) {
+		//	g.setColor(Color.ORANGE);
+		//	g.fillOval(x+w*12,  y-5, 6, 4);
+		//}
 		
 	}
 	
