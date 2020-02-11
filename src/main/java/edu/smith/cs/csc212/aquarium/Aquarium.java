@@ -43,7 +43,6 @@ public class Aquarium extends GFX {
 	Bubble crush = new Bubble();
 	Bubble [] bubbles = new Bubble[10];
 	
-
 	
 	public Aquarium() {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
@@ -53,20 +52,18 @@ public class Aquarium extends GFX {
 		for (int i = 0; i<bubbles.length; i++) {
 			bubbles[i] = new Bubble();
 		}
-		
-
+	
 	}
 	
 	
 	int fish3X = 100;
 	
-	
-	
-	Fish nemo = new Fish(Color.orange,10,10, true, false);
-	Fish marlin = new Fish(Color.magenta, 100, 100, false, true);
+
+	Fish nemo = new Fish(Color.orange,10,10, true, true);
+	Fish marlin = new Fish(Color.magenta, 100, 100, true, true);
 	Fish fishA = new Fish(Color.yellow, 130, 130, true, true);
-	Fish fishB = new Fish(Color.darkGray, 200, 200, false, false);
-	Fish fishC = new Fish(Color.green, 400, 300, false, true);
+	Fish fishB = new Fish(Color.darkGray, 200, 200, true, true);
+	Fish fishC = new Fish(Color.green, 400, 300, true, true);
 
  
 	@Override
@@ -107,6 +104,10 @@ public class Aquarium extends GFX {
 		for(Bubble b: this.bubbles) {
 			b.draw(g);
 		}
+		
+		//draw TreasureChest
+		
+		
 				
 	}
 
