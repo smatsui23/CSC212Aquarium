@@ -50,6 +50,11 @@ public class Snail {
 	 * TODO: move the snail about.
 	 */
 	public void move() {
+		this.x += 3;
+		if (this.x > 500) {
+			this.x += 0;
+			this.y += 10;
+			}
 
 	}
 
@@ -88,6 +93,8 @@ public class Snail {
 		// It's OK if you forget this, Java will eventually notice, but better to have
 		// it!
 		position.dispose();
+		
+		move();
 	}
 
 	/**
@@ -140,4 +147,17 @@ public class Snail {
 		g.setColor(Color.black);
 		g.draw(shell3);
 	}
+	
+	public static void movingVertical(Graphics2D g, Color color, int x, int y) {
+		Graphics2D flipped = (Graphics2D) g.create();
+		flipped.translate(x, y);
+		flipped.scale(-1, 1);
+		flipped.dispose();
+		
+	}
+	
+	
+		
+		
+	
 }

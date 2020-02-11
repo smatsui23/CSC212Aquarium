@@ -15,6 +15,7 @@ public class Fish {
 	int destX;
 	int destY; 
 	
+	
 	public Fish(Color color, 
 			int x, int y, 
 			boolean isLittle, boolean facingLeft) {
@@ -29,8 +30,9 @@ public class Fish {
 	}
 	
 	public void swim() {
+		
 		//"Fish Destination System"
-		if (this.x < this.destX) {
+		if(this.x < this.destX) {
 			this.x += 1;
 		}
 		if (this.y < this.destY) {
