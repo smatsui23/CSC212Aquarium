@@ -52,6 +52,7 @@ public class Snail {
 	public void move() {
 		this.x += 3;
 		if (this.x > 500) {
+			//TO DO: HOW TO CHANGE THE DIRECTION(SIDE) OF THE SNAIL 
 			this.x += 0;
 			this.y += 10;
 			}
@@ -148,16 +149,6 @@ public class Snail {
 		g.draw(shell3);
 	}
 	
-	public static void movingVertical(Graphics2D g, Color color, int x, int y) {
-		Graphics2D flipped = (Graphics2D) g.create();
-		flipped.translate(x, y);
-		flipped.scale(-1, 1);
-		flipped.dispose();
-		
-	}
-	
-	
-		
 		
 	
 }

@@ -10,6 +10,7 @@ public class Bubble {
 	int y;
 	int wiggle;
 	int delay;
+	int size;
 	Random rand = new Random();
 	
 	public Bubble() {
@@ -18,13 +19,24 @@ public class Bubble {
 		this.y = rand.nextInt(500);	
 		this.wiggle = 0;
 		this.delay = 0;
+		this.size = rand.nextInt(900);
 	}
 	
 	public void draw(Graphics2D g) {
+		//TO DO: randomly sized bubble for each of the 10 sets 
+		
+		//for (int i = 0; i<bubbles.length; i++) {
+			//Font f = g.getFont();
+			//g.setFont(f.deriveFont(this.size));
+		//}
+		
 		Font f = g.getFont();
-		g.setFont(f.deriveFont(50.0f));
+		g.setFont(f.deriveFont(this.size));
+		
+		//g.setFont(f.deriveFont((float) 50.0));
 		g.setColor(Color.white);
 		g.drawString(".", this.x+ this.wiggle, this.y);
+		
 		
 		animate();
 	}

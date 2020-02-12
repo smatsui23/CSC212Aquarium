@@ -49,16 +49,11 @@ public class Fish {
 		}
 		
 		//TO DO: When it is close enough to the destination, it chooses another
-		//if(abs(this.destY - this.y) < 5) {
-		//	this.destY = new this.destY
-		//}
+		// if abs(this.destX-this.x) < 5 && abs(this.destY-this.y) < 5
+		// new this.destX 
 		
 	}
 	
-	private int abs(int i) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	public void draw(Graphics2D g) {
 		this.swim();

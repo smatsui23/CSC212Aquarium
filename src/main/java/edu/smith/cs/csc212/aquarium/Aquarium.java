@@ -48,6 +48,8 @@ public class Aquarium extends GFX {
 	Food seaweedB = new Food(400, 400, Color.green);
 	Food seaweedC = new Food(420, 400, Color.green);
 	
+	Shark Jaws = new Shark(250, 250, Color.gray);
+	
 	
 	public Aquarium() {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
@@ -76,6 +78,15 @@ public class Aquarium extends GFX {
 		// Draw the "ocean" background.
 		g.setColor(Color.blue);
 		g.fillRect(0, 0, getWidth(), getHeight());
+		
+		//TO DO: GREENER TANK 
+		int R = 0;
+		int G = 10;
+		int B = 256;
+		Color greener = new Color(R, G+50, B-20);
+		g.setColor(greener);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		
 		
 		IntPoint maybeClick = this.processClick();
 		if(maybeClick != null) {
@@ -118,6 +129,8 @@ public class Aquarium extends GFX {
 		seaweedB.draw(g);
 		seaweedC.draw(g);
 		
+		//draw Shark
+		Jaws.draw(g);
 				
 	}
 
