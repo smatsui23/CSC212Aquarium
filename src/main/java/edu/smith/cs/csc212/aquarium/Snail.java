@@ -50,14 +50,40 @@ public class Snail {
 	 * TODO: move the snail about.
 	 */
 	public void move() {
-		this.x += 3;
-		if (this.x > 500) {
-			//TO DO: HOW TO CHANGE THE DIRECTION(SIDE) OF THE SNAIL 
-			this.x += 0;
-			this.y += 10;
+		
+		if (this.y==51) {
+			this.direction = "top";
+			if (0<this.x && this.x<502) {
+				this.x += 3;
+				this.y += 0;
 			}
-
-	}
+		}
+		
+		if (this.x==450) {
+			this.direction = "right";
+			if (0<this.y && this.y<500) {
+				this.x += 0;
+				this.y += 3;
+			}
+		}
+		
+		if (this.y==450) {
+			this.direction = "bottom";
+			if (0<this.x && this.x<500) {
+				this.x -= 3;
+				this.y += 0;
+			}
+		}
+		
+		if (this.x==51) {
+			this.direction = "left";
+			if (0<this.y && this.y<500) {
+				this.x += 0;
+				this.y -= 3;
+			}
+		}
+		
+		}
 
 	/**
 	 * Draw the snail at the current setup.

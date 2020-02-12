@@ -21,10 +21,7 @@ public class Shark {
 		g.fillOval(x+140, y, 25,50); //tail
 		
 		g.setColor(Color.black); 
-		g.fillOval(x+15,y+15,10,10);//eye
-		
-		
-	
+		g.fillOval(x+15,y+15,10,10);//eyes
 		
 	}
 	

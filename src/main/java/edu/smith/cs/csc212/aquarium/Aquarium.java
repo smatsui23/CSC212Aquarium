@@ -83,6 +83,8 @@ public class Aquarium extends GFX {
 		int R = 0;
 		int G = 10;
 		int B = 256;
+		
+		//use for loops 
 		Color greener = new Color(R, G+50, B-20);
 		g.setColor(greener);
 		g.fillRect(0, 0, getWidth(), getHeight());
