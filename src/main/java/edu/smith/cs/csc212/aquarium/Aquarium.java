@@ -64,12 +64,11 @@ public class Aquarium extends GFX {
 	
 	
 	int fish3X = 100;
-	
 
-	Fish nemo = new Fish(Color.orange,10,10, true, true);
-	Fish marlin = new Fish(Color.magenta, 100, 100, true, true);
-	Fish fishA = new Fish(Color.yellow, 130, 130, true, true);
-	Fish fishB = new Fish(Color.darkGray, 200, 200, true, true);
+	Fish nemo = new Fish(Color.orange,10,10, true, false);
+	Fish marlin = new Fish(Color.magenta, 100, 100, true, false);
+	Fish fishA = new Fish(Color.yellow, 130, 130, true, false);
+	Fish fishB = new Fish(Color.darkGray, 200, 200, false, true);
 	Fish fishC = new Fish(Color.green, 400, 300, true, true);
 
  
@@ -80,14 +79,17 @@ public class Aquarium extends GFX {
 		g.fillRect(0, 0, getWidth(), getHeight());
 		
 		//TO DO: GREENER TANK 
-		int R = 0;
-		int G = 10;
-		int B = 256;
+		//int R = 0;
+		//int G = 10;
+		//int B = 256;
 		
-		//use for loops 
-		Color greener = new Color(R, G+50, B-20);
-		g.setColor(greener);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		//for (int i = 0; i<5; i++) {
+			//how to assign the "greener color"
+			//Greener = new Color(R, G+50, B-20);
+			//g.setColor(Greener);
+			//g.fillRect(0, 0, getWidth(), getHeight());
+		//}
+		
 		
 		
 		IntPoint maybeClick = this.processClick();

@@ -27,8 +27,13 @@ public class Fish {
 		this.isLittle = isLittle;
 		this.facingLeft = facingLeft;
 		
-		this.destX = rand.nextInt(500);
-		this.destY = rand.nextInt(500);
+		//this.destX = rand.nextInt(500);
+		//this.destY = rand.nextInt(500);
+		
+		for(int i=0; i<10; i++){
+			this.destX = rand.nextInt(500);
+			this.destY = rand.nextInt(500);
+		}
 	}
 	
 	public void swim() {
@@ -49,34 +54,38 @@ public class Fish {
 		}
 		
 		//TO DO: When it is close enough to the destination, it chooses another
-		// if abs(this.destX-this.x) < 5 && abs(this.destY-this.y) < 5
-		// new this.destX 
+		// how to use absolute value
+		//where do i generate new destination 
 		
+		//if ((this.destX-this.x) < 5 &&  (this.destY-this.y) < 5) {
+		//		this.destX = this.destX(i);
+		//		this.destY = this.destY(i);
+		//}
 	}
-	
+		
 
 	public void draw(Graphics2D g) {
 		this.swim();
 		
 		//Not all fish should be small and facing left
 		//need some if statements 
-		
-		//TO DO: Fish has tail on both sides when facing right
 		if (isLittle && facingLeft) {
 			DrawFish.smallFacingLeft(g, 
 				this.color, this.x, this.y);
 			
 			if(this.x < this.destX) {
+				facingLeft = false; 
 				DrawFish.smallFacingRight(g,
 						this.color, this.x, this.y);
 			}
 		}	
 		
-		else if (isLittle) {
+		else if (isLittle && facingLeft != true) {
 			DrawFish.smallFacingRight(g, 
 				this.color, this.x, this.y);
-			
+				
 			if(this.x > this.destX) {
+				facingLeft = true;
 				DrawFish.smallFacingLeft(g,
 					this.color, this.x, this.y);
 				}
