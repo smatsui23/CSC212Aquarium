@@ -1,6 +1,7 @@
 package edu.smith.cs.csc212.aquarium;
 
 import java.awt.Color;
+import java.lang.Math;
 import java.awt.Graphics2D;
 import java.util.Random;
 
@@ -27,16 +28,15 @@ public class Fish {
 		this.isLittle = isLittle;
 		this.facingLeft = facingLeft;
 		
-		//this.destX = rand.nextInt(500);
-		//this.destY = rand.nextInt(500);
-		
-		for(int i=0; i<10; i++){
-			this.destX = rand.nextInt(500);
-			this.destY = rand.nextInt(500);
-		}
+		this.destX = rand.nextInt(500);
+		this.destY = rand.nextInt(500);
+	
 	}
 	
 	public void swim() {
+		
+		
+	
 		
 		//"Fish Destination System"
 		if(this.x < this.destX) {
@@ -55,12 +55,13 @@ public class Fish {
 		
 		//TO DO: When it is close enough to the destination, it chooses another
 		// how to use absolute value
-		//where do i generate new destination 
+		//where to generate new destination 
+		//how to assign 
 		
-		//if ((this.destX-this.x) < 5 &&  (this.destY-this.y) < 5) {
-		//		this.destX = this.destX(i);
-		//		this.destY = this.destY(i);
-		//}
+		if (Math.abs(this.destX-this.x) < 5 &&  Math.abs(this.destY-this.y) < 5) {
+			this.destX = rand.nextInt(500);
+			this.destY = rand.nextInt(500);
+		}
 	}
 		
 

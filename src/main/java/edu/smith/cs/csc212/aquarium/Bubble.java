@@ -41,8 +41,8 @@ public class Bubble {
 			//off the screen
 			this.x = rand.nextInt(130);
 			this.y = 550;
-			
 		}
+		
 		if (this.delay > 100) {
 			this.delay = 0;
 			this.x -= 40;
