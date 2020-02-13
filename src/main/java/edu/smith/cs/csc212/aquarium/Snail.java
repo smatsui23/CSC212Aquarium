@@ -92,7 +92,18 @@ public class Snail {
 			
 	}
 		
-		
+	
+	//Snail blinking
+	public void blink() {
+		 
+		if (this.count % 10 == 0) {
+			Color tmp = currentEyeColor;
+			currentEyeColor = nextEyeColor;
+			nextEyeColor = tmp;		
+		}
+					
+		this.count = this.count + 1; 
+	}
 	/**
 	 * Draw the snail at the current setup.
 	 * 
@@ -102,7 +113,7 @@ public class Snail {
 		
 		// By calling move here, if we want to move our snail, we can do so.
 		// Move gets called by draw, so whenever draw gets called.
-		//this.move();
+//this.move();
 
 		// By making a new Graphics2D object, we can move everything that gets drawn to
 		// it.
@@ -110,14 +121,7 @@ public class Snail {
 		Graphics2D position = (Graphics2D) g.create();
 		position.translate(x, y);
 
-		//Snail blinking 
-		if (this.count % 10 == 0) {
-			Color tmp = currentEyeColor;
-			currentEyeColor = nextEyeColor;
-			nextEyeColor = tmp;		
-		}
-			
-		this.count = this.count + 1; 
+
 		
 		// Note that I need to compare strings with ".equals" this is a Java weirdness.
 		if ("bottom".equals(this.direction)) {
@@ -140,8 +144,6 @@ public class Snail {
 		position.dispose();
 		
 		
-		
-		move();
 	}
 
 	/**

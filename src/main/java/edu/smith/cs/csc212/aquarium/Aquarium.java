@@ -48,7 +48,7 @@ public class Aquarium extends GFX {
 	HungryFish seaweedA = new HungryFish(380, 400, Color.green);
 	HungryFish seaweedB = new HungryFish(400, 400, Color.green);
 	HungryFish seaweedC = new HungryFish(420, 400, Color.green);
-	HungryFish seaweedD = new HungryFish(250, 250, Color.green);
+	
 	
 	Shark Jaws = new Shark(250, 250, Color.gray);
 
@@ -83,22 +83,20 @@ public class Aquarium extends GFX {
 	@Override
 	public void draw(Graphics2D g) {
 		
-		//TO DO: set max variables 
+		//tank goes greener 
 		if (this.count % 50 == 0) {
-//			algorithm.move();
-			
 			if (G+dG > 255) {
 				dG = -50;
-				
 			}
+			
 			if (G + dG < 0) {
 				dG = 50;
 			}
 			
 			if (B+dB > 255) {
 				dB = -20;
-				
 			}
+			
 			if (B + dB < 0) {
 				dB = 20;
 			}
@@ -106,47 +104,43 @@ public class Aquarium extends GFX {
 			G += dG;
 			B +=dB;
 		}
-		
-		
 			
 		this.count = this.count + 1; 
 		Color Greener = new Color(R, G, B);
 		g.setColor(Greener);
 		g.fillRect(0, 0, getWidth(), getHeight());	
-		
-		
-		
+	
+		//destination point for orange fish nemo
 		IntPoint maybeClick = this.processClick();
 		if(maybeClick != null) {
 			nemo.destX = maybeClick.x;
 			nemo.destY = maybeClick.y;
 		}
 		
+		//Move the snail when tank is green!
+		//Move the eyes when tank is green!
+		if (G +dG >= 190) {
+			algorithm.move();
+			algorithm.blink();
+		}
+				
 		//Draw the fishes
 		nemo.draw(g);
 		marlin.draw(g);
 		fishA.draw(g);
 		fishB.draw(g);
 		fishC.draw(g);
-		
 
 		//Little Fish Moves
 		DrawFish.smallFacingRight(g, Color.red,fish3X, 200);
 
-		
 		// Draw our snail!
 		algorithm.draw(g);
-			
-	
-
+		
 		// Move the fish!
 		fish3X += 3;
 		if (fish3X > getWidth()+10) {
 			fish3X = 10;
-			
-			if(fish3X < 100) {
-				seaweedD.draw(g);
-			}
 		}
 		
 		//draw bubbles
@@ -163,9 +157,7 @@ public class Aquarium extends GFX {
 		seaweedA.draw(g);
 		seaweedB.draw(g);
 		seaweedC.draw(g);
-		
-		
-		
+	
 		//draw Shark
 		Jaws.draw(g);
 				
