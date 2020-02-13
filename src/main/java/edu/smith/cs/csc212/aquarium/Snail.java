@@ -23,6 +23,12 @@ public class Snail {
 	 * The position of the Snail; y-coordinate.
 	 */
 	public int y;
+	
+	int count = 0;
+	
+	Color currentEyeColor = Color.black;
+	Color nextEyeColor = Color.white;
+	
 
 	/**
 	 * Create a snail at (sx, sy) with position s.
@@ -49,6 +55,7 @@ public class Snail {
 	/**
 	 * TODO: move the snail about.
 	 */
+	//Snail face different direction according to the side they are on 
 	public void move() {
 		
 		if (this.y==51) {
@@ -81,19 +88,21 @@ public class Snail {
 				this.x += 0;
 				this.y -= 3;
 			}
-		}
+		}	
+			
+	}
 		
-		}
-
+		
 	/**
 	 * Draw the snail at the current setup.
 	 * 
 	 * @param g - the window to draw to.
 	 */
 	public void draw(Graphics2D g) {
+		
 		// By calling move here, if we want to move our snail, we can do so.
 		// Move gets called by draw, so whenever draw gets called.
-		this.move();
+		//this.move();
 
 		// By making a new Graphics2D object, we can move everything that gets drawn to
 		// it.
@@ -101,25 +110,36 @@ public class Snail {
 		Graphics2D position = (Graphics2D) g.create();
 		position.translate(x, y);
 
+		//Snail blinking 
+		if (this.count % 10 == 0) {
+			Color tmp = currentEyeColor;
+			currentEyeColor = nextEyeColor;
+			nextEyeColor = tmp;		
+		}
+			
+		this.count = this.count + 1; 
+		
 		// Note that I need to compare strings with ".equals" this is a Java weirdness.
 		if ("bottom".equals(this.direction)) {
-			drawSnail(position, Color.red, Color.white, Color.black);
+			drawSnail(position, Color.red, Color.white, currentEyeColor);
 		} else if ("top".equals(this.direction)) {
 			position.scale(-1, -1);
-			drawSnail(position, Color.red, Color.white, Color.black);
+			drawSnail(position, Color.red, Color.white, currentEyeColor);
 		} else if ("left".equals(this.direction)) {
 			// Oh no, radians.
 			position.rotate(Math.PI / 2);
-			drawSnail(position, Color.red, Color.white, Color.black);
+			drawSnail(position, Color.red, Color.white, currentEyeColor);
 		} else { // we don't have to say "right" here.
 			// Oh no, radians.
 			position.rotate(-Math.PI / 2);
-			drawSnail(position, Color.red, Color.white, Color.black);
+			drawSnail(position, Color.red, Color.white, currentEyeColor);
 		}
 
 		// It's OK if you forget this, Java will eventually notice, but better to have
 		// it!
 		position.dispose();
+		
+		
 		
 		move();
 	}
@@ -174,7 +194,7 @@ public class Snail {
 		g.setColor(Color.black);
 		g.draw(shell3);
 	}
-	
+		
 		
 	
 }

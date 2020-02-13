@@ -3,12 +3,12 @@ package edu.smith.cs.csc212.aquarium;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class Food {
+public class HungryFish {
 	int x;
 	int y;
 	Color color;
 	
-	Food(int startX, int startY, Color startColor){
+	HungryFish(int startX, int startY, Color startColor){
 		this.x = startX;
 		this.y = startY;
 		this.color = startColor;
@@ -23,10 +23,3 @@ public class Food {
 	}
 
 }
-
-
-
-
-	
-	
-	

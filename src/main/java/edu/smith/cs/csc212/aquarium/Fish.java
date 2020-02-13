@@ -35,9 +35,6 @@ public class Fish {
 	
 	public void swim() {
 		
-		
-	
-		
 		//"Fish Destination System"
 		if(this.x < this.destX) {
 			this.x += 1;
@@ -53,11 +50,7 @@ public class Fish {
 			this.y -= 1;
 		}
 		
-		//TO DO: When it is close enough to the destination, it chooses another
-		// how to use absolute value
-		//where to generate new destination 
-		//how to assign 
-		
+		//chose new destination when it is close to the current destination
 		if (Math.abs(this.destX-this.x) < 5 &&  Math.abs(this.destY-this.y) < 5) {
 			this.destX = rand.nextInt(500);
 			this.destY = rand.nextInt(500);
@@ -92,7 +85,5 @@ public class Fish {
 				}
 		}
 			
-
-		
 	}
 }

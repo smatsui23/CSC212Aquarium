@@ -29,6 +29,7 @@ public class Aquarium extends GFX {
 	 */
 	public static int HEIGHT = 500;
 
+	int count = 0;
 	/**
 	 * Put a snail on the top of the tank.
 	 */
@@ -44,12 +45,19 @@ public class Aquarium extends GFX {
 	
 	TreasureChest gold = new TreasureChest(0, 485, Color.yellow);
 	
-	Food seaweedA = new Food(380, 400, Color.green);
-	Food seaweedB = new Food(400, 400, Color.green);
-	Food seaweedC = new Food(420, 400, Color.green);
+	HungryFish seaweedA = new HungryFish(380, 400, Color.green);
+	HungryFish seaweedB = new HungryFish(400, 400, Color.green);
+	HungryFish seaweedC = new HungryFish(420, 400, Color.green);
+	HungryFish seaweedD = new HungryFish(250, 250, Color.green);
 	
 	Shark Jaws = new Shark(250, 250, Color.gray);
+
+	int R = 0;
+	int G = 0;
+	int B = 255;
 	
+	int dG = 50;
+	int dB = -20;
 	
 	public Aquarium() {
 		// Here we ask GFX to make our window of size WIDTH and HEIGHT.
@@ -74,24 +82,37 @@ public class Aquarium extends GFX {
  
 	@Override
 	public void draw(Graphics2D g) {
-		// Draw the "ocean" background.
-		g.setColor(Color.blue);
-		g.fillRect(0, 0, getWidth(), getHeight());
 		
-		//TO DO: GREENER TANK 
-		int R = 0;
-		int G = 10;
-		int B = 255;
-		
-		for (int i = 0; i<5; i++) {
-			//how to assign the "greener color"
+		//TO DO: set max variables 
+		if (this.count % 50 == 0) {
+//			algorithm.move();
 			
-			Color Greener = new Color(R, G, B);
-			g.setColor(Greener);
-			g.fillRect(0, 0, getWidth(), getHeight());
-			G += 50;
-			B -= 20;
+			if (G+dG > 255) {
+				dG = -50;
+				
+			}
+			if (G + dG < 0) {
+				dG = 50;
+			}
+			
+			if (B+dB > 255) {
+				dB = -20;
+				
+			}
+			if (B + dB < 0) {
+				dB = 20;
+			}
+			
+			G += dG;
+			B +=dB;
 		}
+		
+		
+			
+		this.count = this.count + 1; 
+		Color Greener = new Color(R, G, B);
+		g.setColor(Greener);
+		g.fillRect(0, 0, getWidth(), getHeight());	
 		
 		
 		
@@ -112,13 +133,20 @@ public class Aquarium extends GFX {
 		//Little Fish Moves
 		DrawFish.smallFacingRight(g, Color.red,fish3X, 200);
 
+		
 		// Draw our snail!
 		algorithm.draw(g);
+			
+	
 
 		// Move the fish!
 		fish3X += 3;
 		if (fish3X > getWidth()+10) {
 			fish3X = 10;
+			
+			if(fish3X < 100) {
+				seaweedD.draw(g);
+			}
 		}
 		
 		//draw bubbles
@@ -135,6 +163,8 @@ public class Aquarium extends GFX {
 		seaweedA.draw(g);
 		seaweedB.draw(g);
 		seaweedC.draw(g);
+		
+		
 		
 		//draw Shark
 		Jaws.draw(g);
@@ -153,4 +183,3 @@ public class Aquarium extends GFX {
 	}
 
 }
-
